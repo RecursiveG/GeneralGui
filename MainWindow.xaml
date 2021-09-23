@@ -1,0 +1,55 @@
+﻿<Window x:Class="prj_GeneralGui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:prj_GeneralGui"
+        mc:Ignorable="d"
+        Title="General GUI Tool"
+        Height="450"
+        Width="800"
+        Loaded="Window_Loaded">
+        
+  <Grid Margin="10">
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <ComboBox x:Name="ComboBoxScriptList"
+              Grid.Row="0" 
+              SelectionChanged="ComboBox_SelectionChanged" />
+
+
+    <TextBox x:Name="TextBoxScriptEditor"
+             Grid.Row="1"
+             Margin="0,10"
+             AcceptsReturn="True"
+             VerticalScrollBarVisibility="Auto"
+             HorizontalScrollBarVisibility="Auto"
+             FontFamily="Consolas"
+             FontSize="16">
+
+      <TextBox.ContextMenu>
+        <ContextMenu>
+          <MenuItem Header="Insert file path" Click="InsertFilePathAtCursor"/>
+          <MenuItem Header="Insert folder path" Click="InsertFolderPathAtCursor"/>
+        </ContextMenu>
+      </TextBox.ContextMenu>
+    </TextBox>
+
+    <Grid Grid.Row="2">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="5*"/>
+        <ColumnDefinition Width="1*"/>
+      </Grid.ColumnDefinitions>
+      <Button Grid.Column="1" Content="Execute" Click="Button_Click"/>
+    </Grid>
+
+  </Grid>
+</Window>
